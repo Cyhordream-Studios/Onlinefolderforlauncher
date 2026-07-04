@@ -1,2 +1,5 @@
 Flask
 flask-cors
+flask-login
+requests
+gunicorn
