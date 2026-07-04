@@ -30,19 +30,26 @@ Liebe Grüße
 das Cyhordream Studios Team
 """
 
-    msg = MIMEText(email_text, "plain", "utf-8")
-    msg["Subject"] = "Dein Verifizierungscode"
-    msg["From"] = sender_email
-    msg["To"] = user_email
+    # E-Mail-Inhalt für den Versand vorbereiten
+    from email.mime.text import MIMEText
+    msg = MIMEText(email_text, 'plain', 'utf-8')
+    msg['Subject'] = "Cyhordream Studios - Verifizierung"
+    msg['From'] = sender_email
+    msg['To'] = user_email
 
     try:
-        server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+        # HIER SIND DIE ZWEI WICHTIGEN NEUEN ZEILEN FÜR RENDER:
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.starttls()  # Das schaltet die Verschlüsselung auf Port 587 live
+        
+        # Jetzt ganz normal einloggen und abschicken
         server.login(sender_email, app_password)
-        server.sendmail(sender_email, user_email, msg.as_string())
+        server.sendmail(sender_email, [user_email], msg.as_string())
         server.quit()
-        print("E-Mail wurde erfolgreich verschickt!")
+        print("Verifizierungs-E-Mail erfolgreich gesendet!")
+        
     except Exception as e:
-        print(f"Fehler beim Senden: {e}")
+        print(f"SMTP-Fehler: {e}")
 
 def generate_account_token():
     return str(uuid.uuid4())[:16].upper() # Generiert einen 16-stelligen Token
