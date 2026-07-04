@@ -217,7 +217,7 @@ def generiere_navigation():
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    # Wir löschen das render_template! Python soll direkt das HTML darunter senden:
     return f'''<!DOCTYPE html>
     <html>
     <head><title>Cyhordream Studios</title>{FINAL_CYBER_DESIGN}</head>
