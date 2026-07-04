@@ -217,6 +217,7 @@ def generiere_navigation():
 
 @app.route('/')
 def home():
+    return render_template('index.html')
     return f'''<!DOCTYPE html>
     <html>
     <head><title>Cyhordream Studios</title>{FINAL_CYBER_DESIGN}</head>
