@@ -30,7 +30,6 @@ Liebe Grüße
 das Cyhordream Studios Team
 """
 
-    # E-Mail-Inhalt für den Versand vorbereiten
     from email.mime.text import MIMEText
     msg = MIMEText(email_text, 'plain', 'utf-8')
     msg['Subject'] = "Cyhordream Studios - Verifizierung"
@@ -38,18 +37,20 @@ das Cyhordream Studios Team
     msg['To'] = user_email
 
     try:
-        # HIER SIND DIE ZWEI WICHTIGEN NEUEN ZEILEN FÜR RENDER:
-        server = smtplib.SMTP("smtp.gmail.com", 587)
-        server.starttls()  # Das schaltet die Verschlüsselung auf Port 587 live
-        
-        # Jetzt ganz normal einloggen und abschicken
+        # WICHTIG: timeout=3 verhindert, dass der Server einfriert!
+        print("[SMTP] Versuche Verbindung zu Gmail aufzubauen...")
+        server = smtplib.SMTP("smtp.gmail.com", 587, timeout=3)
+        server.starttls()
         server.login(sender_email, app_password)
         server.sendmail(sender_email, [user_email], msg.as_string())
         server.quit()
-        print("Verifizierungs-E-Mail erfolgreich gesendet!")
+        print("[SMTP] E-Mail erfolgreich gesendet!")
         
     except Exception as e:
-        print(f"SMTP-Fehler: {e}")
+        # Falls Render blockiert, fangen wir das hier ab:
+        print(f"!!! [SMTP FEHLER] E-Mail-Versand fehlgeschlagen: {e}")
+        print(f"!!! [ENTWICKLER-INFO] Der Code für {user_email} lautet: {code}")
+        print("Der Login-Vorgang wird trotzdem erlaubt, damit der Launcher nicht abstürzt!")
 
 def generate_account_token():
     return str(uuid.uuid4())[:16].upper() # Generiert einen 16-stelligen Token
