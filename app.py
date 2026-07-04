@@ -105,7 +105,7 @@ FINAL_CYBER_DESIGN = '''
     body { background-color: #1a252f; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-user-select: none; user-select: none; animation: seitenEinblenden 0.6s ease forwards; }
     .top-bar { background-color: #1c2833; display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; box-shadow: 0 4px 10px rgba(0,0,0,0.4); border-bottom: 1px solid #2c3e50; position: relative; z-index: 1000; }
     
-    .top-logo { height: auto; width: 150px; object-fit: contain; cursor: pointer; }
+    .top-logo { height: auto; width: 90px; object-fit: contain; cursor: pointer; }
     .nav-center { display: flex; gap: 20px; align-items: center; }
     .nav-right { display: flex; align-items: center; gap: 20px; }
     .nav-link { color: #ffffff; text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.3s ease; padding: 5px 10px; }
@@ -193,7 +193,7 @@ def generiere_navigation():
         
     return f'''
     <div class="top-bar">
-        <a href="/"><img src="/static/System_Assets/Logo.png" alt="Cyhordream Logo" class="top-logo" style="max-width: 150px; height: auto;" onerror="this.src='https://placehold.co'">
+        <a href="/"><img src="/static/System_Assets/Logo.png" alt="Cyhordream Logo" class="top-logo" style="max-width: 90px; height: auto;" onerror="this.src='https://placehold.co'">
         <div class="nav-center">
             {link_home}
             {link_about}
