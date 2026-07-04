@@ -193,7 +193,7 @@ def generiere_navigation():
         
     return f'''
     <div class="top-bar">
-        <a href="/"><img src="/static/System_Assets/logo.png" alt="Logo" class="top-logo" onerror="this.src='https://placehold.co'"></a>
+        <a href="/"><img src="/static/System_Assets/logo.png" alt="Cyhordream Logo"> class="top-logo" onerror="this.src='https://placehold.co'"></a>
         <div class="nav-center">
             {link_home}
             {link_about}
