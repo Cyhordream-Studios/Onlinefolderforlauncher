@@ -269,7 +269,7 @@ def home():
 def about():
     return f'''<!DOCTYPE html>
     <html>
-    <head><title>About Us - Cyhordream Studios</title>{FINAL_CYBER_DESIGN}</head>
+    <head><title>About Us - Cyhordream Studios</title><link rel="icon" type="image/png" href="/static/System_Assets/Logo.png">{FINAL_CYBER_DESIGN}</head>
     <body>
     {generiere_navigation()}
     <div class="main-content">
@@ -311,7 +311,7 @@ def game_detail():
     user_val = current_user.id if current_user.is_authenticated else ''
     return f'''<!DOCTYPE html>
     <html>
-    <head><title>Click a Cube - Cyhordream Studios</title>{FINAL_CYBER_DESIGN}</head>
+    <head><title>Click a Cube - Cyhordream Studios</title><link rel="icon" type="image/png" href="/static/System_Assets/Logo.png">{FINAL_CYBER_DESIGN}</head>
     <body>
     {generiere_navigation()}
     <div class="main-content" style="max-width:1000px; margin:0 auto; text-align:left;">
@@ -466,6 +466,7 @@ def news_page():
     <head>
         <title class="lang-en">News - Cyhordream Studios</title>
         <title class="lang-de">Neuigkeiten - Cyhordream Studios</title>
+        <link rel="icon" type="image/png" href="/static/System_Assets/Logo.png">
         {FINAL_CYBER_DESIGN}
     </head>
     <body>
@@ -501,6 +502,7 @@ def play_web():
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <title>Click a Cube Web - Player</title>
+        <link rel="icon" type="image/png" href="/static/System_Assets/Logo.png">
         {FINAL_CYBER_DESIGN}
         <style>
             html, body {{ 
@@ -685,7 +687,7 @@ def serve_unity_files(filename):
 def download_launcher_page():
     return f'''<!DOCTYPE html>
     <html>
-    <head><title>Downloads - Cyhordream Studios</title>{FINAL_CYBER_DESIGN}</head>
+    <head><title>Downloads - Cyhordream Studios</title><link rel="icon" type="image/png" href="/static/System_Assets/Logo.png">{FINAL_CYBER_DESIGN}</head>
     <body>
     {generiere_navigation()}
     <div class="main-content">
@@ -708,7 +710,6 @@ def download_launcher_page():
     </body>
     </html>'''
 
-@app.route('/download-launcher-file')
 @app.route('/download-launcher-file')
 def download_launcher_file():
     # Hier muss jetzt exakt euer neuer Name stehen:
@@ -846,7 +847,7 @@ def api_login():
 def dashboard_route():
     return f'''<!DOCTYPE html>
     <html>
-    <head><title>Dashboard</title>{FINAL_CYBER_DESIGN}</head>
+    <head><title>Dashboard</title><link rel="icon" type="image/png" href="/static/System_Assets/Logo.png">{FINAL_CYBER_DESIGN}</head>
     <body>
     {generiere_navigation()}
     <div class="main-content">
