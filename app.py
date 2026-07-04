@@ -193,7 +193,7 @@ def generiere_navigation():
         
     return f'''
     <div class="top-bar">
-        <a href="/"><img src="/static/System_Assets/logo.png" alt="Cyhordream Logo"> class="top-logo" onerror="this.src='https://placehold.co'"></a>
+        <a href="/"><img src="/static/System_Assets/Logo.png" alt="Cyhordream Logo"> class="top-logo" onerror="this.src='https://placehold.co'"></a>
         <div class="nav-center">
             {link_home}
             {link_about}
@@ -217,10 +217,13 @@ def generiere_navigation():
 
 @app.route('/')
 def home():
-    # Wir löschen das render_template! Python soll direkt das HTML darunter senden:
     return f'''<!DOCTYPE html>
     <html>
-    <head><title>Cyhordream Studios</title>{FINAL_CYBER_DESIGN}</head>
+    <head>
+        <title>Cyhordream Studios</title>
+        <link rel="icon" type="image/png" href="/static/System_Assets/Logo.png">
+        {FINAL_CYBER_DESIGN}
+    </head>
     <body>
     {generiere_navigation()}
     <div class="main-content">
